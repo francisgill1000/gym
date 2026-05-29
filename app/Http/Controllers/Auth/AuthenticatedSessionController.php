@@ -33,10 +33,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        if ($request->user()->isAgent()) {
-            return redirect('/m');
-        }
-
         return redirect()->intended(route('dashboard', absolute: false));
     }
 
